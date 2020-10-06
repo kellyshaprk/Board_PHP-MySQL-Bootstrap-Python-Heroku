@@ -18,7 +18,7 @@ The page keeps the poster even after [EDIT->SAVE]
 Live Page: <del><a href="http://aws.computerstudi.es/~gc200389459/assignment1/default.php" target="_blank"> http://aws.computerstudi.es/~gc200389459/assignment1/default.php </a> </del>
 <br>
 <p>
-Due to the expiration of AWS, Live Page has moved to here: <a href="https://boiling-basin-24761.herokuapp.com/list.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/list.php </a> 
+Due to the expiration of AWS, Live Page has moved to here: <a href="https://boiling-basin-24761.herokuapp.com/default.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/default.php </a> 
 <br>  
 Source Page: <a href="https://github.com/sehee22/comp1006-as1" target="_blank"> https://github.com/sehee22/comp1006-as1 </a> 
 </p>
