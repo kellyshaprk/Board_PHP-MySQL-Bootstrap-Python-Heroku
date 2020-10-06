@@ -37,9 +37,8 @@ if ($ok)
         require('db.php');
 
         // set up and execute the insert
-        $sql = "INSERT INTO my_nf_user (username, password) VALUES(:username, :password);"; // [:username] -> parameter
+        $sql = "INSERT INTO my_nf_user (userId, password) VALUES(:username, :password);"; 
         // test@test.com / Test1234
-	console.log("등록완료");
         $cmd = $db->prepare($sql);
         $cmd->bindParam(':username', $username, PDO::PARAM_STR, 50);
         $cmd->bindParam(':password', $hashedpassword, PDO::PARAM_STR, 255);
