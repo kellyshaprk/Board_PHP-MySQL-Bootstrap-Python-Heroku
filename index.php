@@ -3,7 +3,7 @@ $b_title = "Netflix Viewing Activity";
 require('header.php');
 ?>
 
-<main class = "container">
+<main class = "container"> 
     <div class ="jumbotron" style="background-color: #e3f2fd;">
         <h1>Netflix Viewing Activity</h1>
         <p>This site was created for COMP1006 Intro to Web Programming in Fall 2018 at Georgian College.
