@@ -16,7 +16,7 @@ The page keeps the poster even after [EDIT->SAVE]
 <p>
 Live Page: <del><a href="http://aws.computerstudi.es/~gc200389459/assignment1/default.php" target="_blank"> http://aws.computerstudi.es/~gc200389459/assignment1/default.php </a> </del>
 <br>
-Live Page has moved to here: <a href="https://boiling-basin-24761.herokuapp.com/default.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/default.php </a> 
+Live Page has moved to here (2020): <a href="https://boiling-basin-24761.herokuapp.com/default.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/default.php </a> 
 <br>  
 Source Page: <a href="https://github.com/kellyshaprk/board_PHP-MySQL-Bootstrap" target="_blank"> https://github.com/kellyshaprk/board_PHP-MySQL-Bootstrap </a> 
 </p>
