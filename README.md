@@ -1,22 +1,14 @@
-<h1> Netflix Viewing Activity </h1>
-<p> Make your own Newflix Viewing Activity!
-<br><br>
-Input what you watched, and give the rating/comment
-<br>
-- Title, Date, Genre, Rating is required (Comment is optional)
-<br>
-- The date cannot be the future than now
-<br>
-- Only validate date accepted (i.e. February 31 is not allowed)
-<br>
-- (NEW) Upload the poster! 
-<br>
-The page keeps the poster even after [EDIT->SAVE]
-<br>
-<p>
-Live Page: <del><a href="http://aws.computerstudi.es/~gc200389459/assignment1/default.php" target="_blank"> http://aws.computerstudi.es/~gc200389459/assignment1/default.php </a> </del>
-<br>
-Live Page has moved to here (2020): <a href="https://boiling-basin-24761.herokuapp.com/default.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/default.php </a> 
-<br>  
-Source Page: <a href="https://github.com/kellyshaprk/board_PHP-MySQL-Bootstrap" target="_blank"> https://github.com/kellyshaprk/board_PHP-MySQL-Bootstrap </a> 
-</p>
+## Netflix Viewing Activity
+
+### Description
+Live Page: <a href="https://boiling-basin-24761.herokuapp.com/default.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/default.php </a> 
+<br />
+<img src="img/ListPage.PNG" alt="Netflix Viewing Activitiy webpage" width="60%" height="60%"/>
+<br />
+This website is for recording their own Netflix viewing activity. A user can input the title, date, genre, rating, and comment.
+<br />
+The date cannot be the future than now, and only a valid date is accepted (i.e. February 31 is not allowed).
+<br />
+
+### Skills
+It uses PHP, MySQL, and Twitter Bootstrap and is deployed to AWS. -> Transferred to Heroku (2020).
