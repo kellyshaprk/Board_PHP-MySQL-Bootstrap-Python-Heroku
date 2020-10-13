@@ -2,11 +2,10 @@
 $b_title = "Viewing Activity";
 require('header.php');
 
-try
-{
+try {
     // connect
     require('db.php');
- 
+
     // set up query
     $sql = "SELECT * FROM heroku_d75026005cbf48e.my_nf_viewing ORDER BY ord DESC";
 
@@ -33,12 +32,9 @@ try
     foreach ($my_nf as $m) {
         echo "<tr><td> {$m['title']} </td>";
 
-        if (!empty($m['poster']))
-        {
+        if (!empty($m['poster'])) {
             echo "<td><img src=\"img/{$m['poster']}\" alt=\"Poster\" height=\"50px\" /> </td>";
-        }
-        else
-        {
+        } else {
             echo "<td></td>";
         }
         echo '</td><td>' . $m['mm'] . " " . $m['dd'] . ", " . $m['yy'] .
@@ -62,20 +58,19 @@ try
 
     // disconnect
     $db = null;
-}
-catch (Exception $e)
-{
+} catch (Exception $e) {
     // send
-    mail('kelly.shpark@gmail.com', 'Netflix page Error: ' . $b_title , $e);
+    mail('kelly.shpark@gmail.com', 'Netflix page Error: ' . $b_title, $e);
     // show generic error page
     header('location:error.php');
 }
 ?>
 <!-- js -->
-<script src ="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/scripts.js"></script>
 <!-- sorttable script from https://kryogenix.org/code/browser/sorttable/ -->
 <script src="js/sorttable.js"></script>
 
 </body>
+
 </html>
