@@ -7,7 +7,7 @@ try {
     require('db.php');
 
     // set up query
-    $sql = "SELECT * FROM heroku_d75026005cbf48e.my_nf_viewing ORDER BY ord DESC";
+    $sql = "SELECT * FROM my_nf_viewing ORDER BY ord DESC";
 
     // execute & store the result
     $cmd = $db->prepare($sql);
