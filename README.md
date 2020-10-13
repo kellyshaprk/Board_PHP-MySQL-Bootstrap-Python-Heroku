@@ -1,7 +1,7 @@
 ## Netflix Viewing Activity
 
 ### Description
-Live Page: <a href="https://boiling-basin-24761.herokuapp.com/default.php" target="_blank"> https://boiling-basin-24761.herokuapp.com/default.php </a> 
+Live Page: <a href="https://fierce-stream-56200.herokuapp.com/default.php" target="_blank"> https://fierce-stream-56200.herokuapp.com/default.php </a> 
 <br />
 <img src="img/ListPage.PNG" alt="Netflix Viewing Activitiy webpage" width="60%" height="60%"/>
 <br />
@@ -11,4 +11,4 @@ The date cannot be the future than now, and only a valid date is accepted (i.e. 
 <br />
 
 ### Skills
-It uses PHP, MySQL, and Twitter Bootstrap and is deployed to AWS. -> Transferred to Heroku (2020).
+It uses PHP, MySQL, Twitter Bootstrap, and Python and is deployed to Heroku (2020).
