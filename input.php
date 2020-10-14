@@ -96,8 +96,7 @@ if (array_key_exists('title_search', $_POST)) {
             // execute python using the variable
             //$result = shell_exec("python main.py $search");
             $result = json_decode(exec("python main.py $search"), true);
-            $search =  $result; //파일 생성해도 어디에 떨궈지는지 모르겠음,,, 파일 생성 + 인자값 넘겨주는걸로 처리함. 로컬에선 echo로 표시되는데, 막상 웹에 올리면 안됨 ㅠㅠㅠㅠ 뭐지 ㅠㅠㅠㅠ
-            echo $search; 
+            echo $result; //파일 생성해도 어디에 떨궈지는지 모르겠음,,, 파일 생성 + 인자값 넘겨주는걸로 처리함. 로컬에선 echo로 표시되는데, 막상 웹에 올리면 안됨 ㅠㅠㅠㅠ 뭐지 ㅠㅠㅠㅠ
          }        
         ?>
 </form>
