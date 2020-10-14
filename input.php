@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $b_title = "Viewing Activity Detail";
 require('header.php');
 
@@ -20,7 +20,7 @@ try {
     $rating = null;
     $cmnt = null;
     $ord  = null;
-
+    $search = null;	
 
     // was an existing id(ord column data) passed to this page? if so, select the matching record from the database
     if (!empty($_GET['ord'])) {
@@ -65,6 +65,7 @@ try {
     <input type="submit" name="title_search" id="title_search" value="search by title" /><br />
 </form>
 
+
 <?php
 
 if (array_key_exists('title_search', $_POST)) {
@@ -81,6 +82,23 @@ if (array_key_exists('title_search', $_POST)) {
 }
 
 ?>
+
+
+<form method="post">
+    <input name="search" id="search" required value="<?php echo $search; ?>" />
+    <input type="submit" value="Search" class="btn btn-success" />
+        <?php
+        {   
+            // get search text from the input form
+            $search = isset($_POST["search"]) ?  $_POST["search"] : '';
+            // replace from white space to "_" 
+            $search = preg_replace('/\s+/', "_", $search);
+            // execute python using the variable
+            shell_exec("python main.py $search");
+         }        
+        ?>
+</form>
+	
 
 <form action="save.php" method="post" enctype="multipart/form-data">
     <!--  start the container -->

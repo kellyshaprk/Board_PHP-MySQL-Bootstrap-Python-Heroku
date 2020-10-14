@@ -1,17 +1,17 @@
 from nowon import fetch
 
 import json
+import sys
 
-
-search = "jane"
+search = sys.argv[1]
 url = f"https://can.newonnetflix.info/catalogue/search/{search}#results"
 
 
 result = fetch(url)
 result = json.dumps(fetch(url), indent=4, sort_keys=True )
 result = result.replace("\"{title", "{\"title" + "\"").replace("\""+ "}" + "\"", "\""+ "}").replace("\\", "")
+result = "var py_result = " + result
 
-
-ss = open('result.json','w')
-ss.write(result)
-ss.close()
+py_result = open('py_result.json','w')
+py_result.write(result)
+py_result.close()
