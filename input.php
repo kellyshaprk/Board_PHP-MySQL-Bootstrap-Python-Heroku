@@ -107,6 +107,7 @@ try {
 <script>
 function setDisplay() {
     var x = document.getElementsByClassName ("titles");
+    var y = document.getElementById("select_button");
     var selected_title = '';
 
     for (var i = 0; i < x.length; i++) {
@@ -115,7 +116,6 @@ function setDisplay() {
         }
     }
 
-    var y = document.getElementById("select_button");
     document.getElementById("title_select").hidden = false;
     document.getElementById("select_contents").innerHTML = "You selected: " + selected_title;
     y.innerHTML = '<input type="submit" value="Select" class="btn btn-success" />';   
