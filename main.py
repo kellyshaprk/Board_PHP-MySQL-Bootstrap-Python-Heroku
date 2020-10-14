@@ -15,3 +15,5 @@ result = "var py_result = " + result
 py_result = open('py_result.json','w')
 py_result.write(result)
 py_result.close()
+
+print (json.dumps(result))
