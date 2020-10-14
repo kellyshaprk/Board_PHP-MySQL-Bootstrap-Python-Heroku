@@ -49,7 +49,7 @@ try {
 
     // disconnect
     $db = null;
-} catch (Exception $e) {
+}   catch (Exception $e) {
     // send
     mail('kelly.shpark@gmail.com', 'Netflix page Error: ' . $b_title, $e);
 
@@ -61,27 +61,7 @@ try {
 <!-- 서치기능 -->
 <!-- if you click on the button, it executes the python file to show you the list of the movies/dramas
  -->
-<form method="post">
-    <input type="submit" name="title_search" id="title_search" value="search by title" /><br />
-</form>
-
-
-<?php
-
-if (array_key_exists('title_search', $_POST)) {
-
-
-    $output = exec(' sudo python test.py ');
-
-    if (!empty($output)) {
-        echo "Successfully";
-        echo "<br>";
-    } else {
-        echo "fail";
-    }
-}
-
-?>
+<!-- $output = shell_exec('python test.py'); -->
 
 
 <form method="post">
@@ -96,20 +76,53 @@ if (array_key_exists('title_search', $_POST)) {
             // execute python using the variable
             //$result = shell_exec("python main.py $search");
             $result = json_decode(exec("python main.py $search"), true);
-            
-            if (isset($result)) {
-                $R = json_decode($result, true);
-
-                echo '<br />';
-                foreach ($R as $row) {
-                    echo $row['title'];
-                    echo '<img src=' . $row['poster'] . ' height = "10%" width = "10%"/>';
-                }
-            }
-         }        
+         }
         ?>
 </form>
-	
+
+
+<?php
+    if (isset($result)) {
+        $R = json_decode($result, true);
+                
+        echo '<br />';
+
+        foreach ($R as $row) {
+            echo '<input type="radio" name = "titles" class = "titles" value = "' . $row['title'] . '" onchange="setDisplay()" />';
+
+            echo $row['title'];
+            echo '<img src=' . $row['poster'] . ' height = "10%" width = "10%"/>';
+        }
+        //echo '<br />';
+        //echo '<input type="submit" value="Select" class="btn btn-success" />';      
+    }
+?>
+
+<div id = "title_select" hidden = true>
+    <br /> <br />
+    <div id = "select_contents"></div>
+    <div id = "select_button"> </div>
+</div>
+
+<script>
+function setDisplay() {
+    var x = document.getElementsByClassName ("titles");
+    var selected_title = '';
+
+    for (var i = 0; i < x.length; i++) {
+        if (x[i].checked === true) {
+            selected_title = x[i].defaultValue;
+        }
+    }
+
+    var y = document.getElementById("select_button");
+    document.getElementById("title_select").hidden = false;
+    document.getElementById("select_contents").innerHTML = "You selected: " + selected_title;
+    y.innerHTML = '<input type="submit" value="Select" class="btn btn-success" />';   
+
+}
+</script>
+
 
 <form action="save.php" method="post" enctype="multipart/form-data">
     <!--  start the container -->
@@ -311,6 +324,7 @@ if (array_key_exists('title_search', $_POST)) {
         </div>
     </main>
 </form>
+<!-- js -->
 </body>
 
 </html>

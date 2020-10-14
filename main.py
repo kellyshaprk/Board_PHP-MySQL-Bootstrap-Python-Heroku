@@ -12,8 +12,10 @@ result = json.dumps(fetch(url), indent=4, sort_keys=True )
 result = result.replace("\"{title", "{\"title" + "\"").replace("\""+ "}" + "\"", "\""+ "}").replace("\\", "")
 result = result
 
+'''
 py_result = open('py_result.json','w')
 py_result.write(result)
 py_result.close()
+'''
 
 print (json.dumps(result))
