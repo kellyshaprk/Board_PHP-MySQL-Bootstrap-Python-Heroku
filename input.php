@@ -89,6 +89,7 @@ if (array_key_exists('title_search', $_POST)) {
     <input type="submit" value="Search" class="btn btn-success" />
         <?php
         {   
+            echo "aa";
             // get search text from the input form
             $search = isset($_POST["search"]) ?  $_POST["search"] : '';
             // replace from white space to "_" 
