@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/functions.js"></script>
 
     <!-- to use icons from fontawesome -->
     <script src="https://kit.fontawesome.com/006f14bf04.js" crossorigin="anonymous"></script>

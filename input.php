@@ -21,6 +21,7 @@ try {
     $cmnt = null;
     $ord  = null;
     $search = null;	
+    $selected_title = null;
 
     // was an existing id(ord column data) passed to this page? if so, select the matching record from the database
     if (!empty($_GET['ord'])) {
@@ -87,6 +88,7 @@ try {
                 
         echo '<br />';
 
+        // setDisplay() is located in the js/functions.js
         foreach ($R as $row) {
             echo '<input type="radio" name = "titles" class = "titles" value = "' . $row['title'] . '" onchange="setDisplay()" />';
 
@@ -103,26 +105,6 @@ try {
     <div id = "select_contents"></div>
     <div id = "select_button"> </div>
 </div>
-
-<script>
-function setDisplay() {
-    var x = document.getElementsByClassName ("titles");
-    var y = document.getElementById("select_button");
-    var selected_title = '';
-
-    for (var i = 0; i < x.length; i++) {
-        if (x[i].checked === true) {
-            selected_title = x[i].defaultValue;
-        }
-    }
-
-    document.getElementById("title_select").hidden = false;
-    document.getElementById("select_contents").innerHTML = "You selected: " + selected_title;
-    y.innerHTML = '<input type="submit" value="Select" class="btn btn-success" />';   
-
-}
-</script>
-
 
 <form action="save.php" method="post" enctype="multipart/form-data">
     <!--  start the container -->
@@ -324,7 +306,7 @@ function setDisplay() {
         </div>
     </main>
 </form>
-<!-- js -->
+
 </body>
 
 </html>
