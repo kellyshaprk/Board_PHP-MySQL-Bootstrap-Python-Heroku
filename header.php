@@ -9,7 +9,11 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/functions.js"></script>
-
+    <script>
+        let today = new Date().toISOString().split('T')[0];
+        document.getElementsById("nobody").innerHTML = "Paragraph changed!";
+        document.getElementsById("nobody").innerHTML = $today;
+    </script>
     <!-- to use icons from fontawesome -->
     <script src="https://kit.fontawesome.com/006f14bf04.js" crossorigin="anonymous"></script>
 
@@ -19,6 +23,8 @@
     <!-- since this file is for header, (body, html) tag will go to footer file -->
 
     <nav class="navbar navbar-default">
+        <div id="nobody">dd</div>
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>

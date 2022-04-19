@@ -4,13 +4,14 @@ require('header.php');
 require('auth.php');
 
 // introduce variables to store the form input variables
-$title = $_POST ['title'];
-$mm = $_POST ['mm'];
-$dd = $_POST ['dd'];
-$yy = $_POST ['yy'];
-$genre = $_POST ['genre'];
-$rating = $_POST ['rating'];
-$cmnt = $_POST ['cmnt'];
+$title = $_POST['title'];
+$date = $_POST['date'];
+$mm = $_POST['mm'];
+$dd = $_POST['dd'];
+$yy = $_POST['yy'];
+$genre = $_POST['genre'];
+$rating = $_POST['rating'];
+$cmnt = $_POST['cmnt'];
 $ord = $_POST['ord'];
 $poster = $_POST['poster'];
 
@@ -18,8 +19,7 @@ $poster = $_POST['poster'];
 // validate each input
 $ok = true;
 
-if (empty($title))
-{
+if (empty($title)) {
     echo "Title is Required. <br />";
     $ok = false;
 }
@@ -28,8 +28,7 @@ if (empty($title))
 // if [the input date] > [current date] => echo message, does not save the data
 
 // to make easy to compare, replace from the full name of the month to a number (string type)
-switch ($mm)
-{
+switch ($mm) {
     case "January":
         $mm_num = "01";
         break;
@@ -72,16 +71,14 @@ $today = date("Ymd");
 $dt = $yy . "" . $mm_num . "" . $dd;
 
 // compare the date vs. now
-if ($today < date('Ymd', strtotime($dt)))
-{
+if ($today < date('Ymd', strtotime($dt))) {
     echo "<h2>Save Failed</h2>";
     echo "The date cannot be future than now (Input date: " . $mm . " " . $dd . ", " . $yy . ").";
     $ok = false; // do not save the data
 }
 
 // date validation
-if (!(checkdate($mm_num,$dd,$yy)))
-{
+if (!(checkdate($mm_num, $dd, $yy))) {
     echo "<h2>Save Failed</h2>";
     echo "Check the date (Input date: " . $mm_num . " " . $dd . ", " . $yy . ").";
     $ok = false; // do not save the data
@@ -89,12 +86,10 @@ if (!(checkdate($mm_num,$dd,$yy)))
 
 // check and validate logo upload
 // EDIT -> SAVE => the Poster keeps saved
-if (isset($_FILES['poster']['name']))
-{
+if (isset($_FILES['poster']['name'])) {
     $posterFile = $_FILES['poster'];
 
-    if ($posterFile['size'] > 0)
-    {
+    if ($posterFile['size'] > 0) {
         // generate unique file name
         $poster = session_id() . "-" . $posterFile['name'];
 
@@ -104,24 +99,19 @@ if (isset($_FILES['poster']['name']))
         $fileType = finfo_file($finfo, $posterFile['tmp_name']);
 
         // allow only jpeg & png
-        if (($fileType != "image/jpeg") && ($fileType != "image/png"))
-        {
+        if (($fileType != "image/jpeg") && ($fileType != "image/png")) {
             echo 'Please upload a valid JPG or PNG logo<br />';
             $ok = false;
-        }
-        else
-        {
+        } else {
             // save the file
             move_uploaded_file($posterFile['tmp_name'], "img/{$poster}");
         }
     }
-
 }
 
 // connect to the database with server, username, password, dbname
 // only save if no validation errors
-if ($ok)
-{
+if ($ok) {
     try {
         // db connect
         require('db.php');
@@ -153,16 +143,14 @@ if ($ok)
 
         // redirect
         header('location:list.php');
-    }
-    catch (Exception $e)
-    {
+    } catch (Exception $e) {
         // send
-        mail('kelly.shpark@gmail.com', 'Netflix page Error: ' . $b_title , $e);
+        mail('kelly.shpark@gmail.com', 'Netflix page Error: ' . $b_title, $e);
         // show generic error page
         header('location:error.php');
     }
 }
 ?>
-
 </body>
+
 </html>

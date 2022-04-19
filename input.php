@@ -20,7 +20,7 @@ try {
     $rating = null;
     $cmnt = null;
     $ord  = null;
-    $search = null;	
+    $search = null;
     $selected_title = null;
 
     // was an existing id(ord column data) passed to this page? if so, select the matching record from the database
@@ -50,7 +50,7 @@ try {
 
     // disconnect
     $db = null;
-}   catch (Exception $e) {
+} catch (Exception $e) {
     // send
     mail('kelly.shpark@gmail.com', 'Netflix page Error: ' . $b_title, $e);
 
@@ -68,42 +68,41 @@ try {
 <form method="post">
     <input name="search" id="search" required value="<?php echo $search; ?>" />
     <input type="submit" value="Search" class="btn btn-success" />
-        <?php
-        {   
-            // get search text from the input form
-            $search = isset($_POST["search"]) ?  $_POST["search"] : '';
-            // replace from white space to "_" 
-            $search = preg_replace('/\s+/', "_", $search);
-            // execute python using the variable
-            //$result = shell_exec("python main.py $search");
-            $result = json_decode(exec("python main.py $search"), true);
-         }
-        ?>
+    <?php {
+        // get search text from the input form
+        $search = isset($_POST["search"]) ?  $_POST["search"] : '';
+        // replace from white space to "_" 
+        $search = preg_replace('/\s+/', "_", $search);
+        // execute python using the variable
+        //$result = shell_exec("python main.py $search");
+        $result = json_decode(exec("python main.py $search"), true);
+    }
+    ?>
 </form>
 
 
 <?php
-    if (isset($result)) {
-        $R = json_decode($result, true);
-                
-        echo '<br />';
+if (isset($result)) {
+    $R = json_decode($result, true);
 
-        // setDisplay() is located in the js/functions.js
-        foreach ($R as $row) {
-            echo '<input type="radio" name = "titles" class = "titles" value = "' . $row['title'] . '" onchange="setDisplay()" />';
+    echo '<br />';
 
-            echo $row['title'];
-            echo '<img src=' . $row['poster'] . ' height = "10%" width = "10%"/>';
-        }
-        //echo '<br />';
-        //echo '<input type="submit" value="Select" class="btn btn-success" />';      
+    // setDisplay() is located in the js/functions.js
+    foreach ($R as $row) {
+        echo '<input type="radio" name = "titles" class = "titles" value = "' . $row['title'] . '" onchange="setDisplay()" />';
+
+        echo $row['title'];
+        echo '<img src=' . $row['poster'] . ' height = "10%" width = "10%"/>';
     }
+    //echo '<br />';
+    //echo '<input type="submit" value="Select" class="btn btn-success" />';      
+}
 ?>
 
-<div id = "title_select" hidden = true>
+<div id="title_select" hidden=true>
     <br /> <br />
-    <div id = "select_contents"></div>
-    <div id = "select_button"> </div>
+    <div id="select_contents"></div>
+    <div id="select_button"> </div>
 </div>
 
 <form action="save.php" method="post" enctype="multipart/form-data">
@@ -115,6 +114,13 @@ try {
                 <!-- assume that viewers can watch the same program (movie) many times -->
                 <label for="title" class="col-md-1">Title: </label>
                 <input name="title" id="title" required value="<?php echo $title; ?>" />
+            </fieldset>
+
+            <!-- date calender -->
+            <fieldset>
+                <label for="mm" class="col-md-1">Date: </label>
+                <input type="date" name="date" ?>
+                <?php echo "current date: " . $today ?>
             </fieldset>
             <fieldset>
                 <label for="mm" class="col-md-1">Date: </label>
